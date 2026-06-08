@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PsyNova–NeuroMind Advocacy Unit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #9B1C2E;
+    --crimson-dark: #6B1220;
+    --crimson-light: #C02438;
+    --navy: #1B2A5E;
+    --navy-light: #263C80;
+    --teal: #2A8C78;
+    --teal-light: #3AADA0;
+    --black: #0D0D0D;
+    --off-white: #F7F4F0;
+    --warm-gray: #E8E2DA;
+    --mid-gray: #B5AFA8;
+    --text-muted: #7A7470;
+    --border: rgba(155,28,46,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--black);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--crimson);
+  }
+
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .brand-logo-psy {
+    height: 48px;
+    width: auto;
+    filter: brightness(1);
+  }
+
+  .brand-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--crimson);
+    opacity: 0.5;
+  }
+
+  .brand-logo-neuro {
+    height: 44px;
+    width: auto;
+  }
+
+  .brand-title {
+    display: none;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1.5px solid var(--crimson);
+    color: var(--crimson);
+  }
+  .btn-outline:hover { background: var(--crimson); color: white; }
+
+  .btn-crimson {
+    background: var(--crimson);
+    color: white;
+  }
+  .btn-crimson:hover { background: var(--crimson-light); transform: translateY(-1px); }
+
+  .btn-navy {
+    background: var(--navy);
+    color: white;
+  }
+  .btn-navy:hover { background: var(--navy-light); }
+
+  .btn-teal {
+    background: var(--teal);
+    color: white;
+  }
+  .btn-teal:hover { background: var(--teal-light); }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+  }
+  .btn-ghost:hover { border-color: white; color: white; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem 4.5rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(155,28,46,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(27,42,94,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 60% 10%, rgba(42,140,120,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Ψ watermark */
+  .hero::after {
+    content: 'Ψ';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28rem;
+    font-weight: 300;
+    color: rgba(155,28,46,0.04);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-left { max-width: 680px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(155,28,46,0.15);
+    border: 1px solid rgba(155,28,46,0.3);
+    color: #e06070;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--crimson);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--crimson-light);
+  }
+
+  .hero-subtitle-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    color: var(--teal-light);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 180px;
+  }
+
+  .stat-chip {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--crimson-light);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── SECTION CHROME ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-rule {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  /* ─── DIRECTORY ─── */
+  .directory-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+  }
+
+  .directory-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .search-wrap {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--mid-gray);
+    pointer-events: none;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.6rem;
+    border: 1.5px solid var(--warm-gray);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    background: white;
+    color: var(--black);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .search-input:focus { border-color: var(--crimson); }
+
+  /* ─── MEMBER CARDS GRID ─── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .member-card {
+    background: white;
+    border: 1px solid var(--warm-gray);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.2s;
+    position: relative;
+  }
+
+  .member-card:hover {
+    box-shadow: 0 8px 32px rgba(155,28,46,0.1);
+    transform: translateY(-2px);
+  }
+
+  .card-accent {
+    height: 4px;
+    background: linear-gradient(90deg, var(--crimson), var(--navy));
+  }
+
+  .card-body { padding: 1.4rem; }
+
+  .card-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .member-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--crimson-dark), var(--navy));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .member-info { flex: 1; min-width: 0; }
+
+  .member-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 0.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .member-id {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+  }
+
+  .member-uni {
+    font-size: 0.8rem;
+    color: var(--navy);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .icon-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--warm-gray);
+    background: transparent;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--mid-gray);
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .icon-btn:hover { border-color: var(--crimson); color: var(--crimson); background: rgba(155,28,46,0.04); }
+  .icon-btn.danger:hover { border-color: #c0392b; color: #c0392b; background: rgba(192,57,43,0.05); }
+
+  .tasks-divider {
+    height: 1px;
+    background: var(--warm-gray);
+    margin: 1rem 0;
+  }
+
+  .task-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .task-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-muted);
+    min-width: 82px;
+    padding-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  .task-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+  .task-dot.assigned { background: var(--navy); }
+  .task-dot.completed { background: var(--teal); }
+
+  .task-text {
+    font-size: 0.85rem;
+    color: var(--black);
+    line-height: 1.5;
+    word-break: break-word;
+  }
+
+  .task-empty {
+    font-size: 0.82rem;
+    color: var(--mid-gray);
+    font-style: italic;
+  }
+
+  .card-date {
+    font-size: 0.72rem;
+    color: var(--mid-gray);
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed var(--warm-gray);
+  }
+
+  /* ─── EMPTY STATE ─── */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    color: var(--text-muted);
+  }
+
+  .empty-psi {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--warm-gray);
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .empty-state p { font-size: 0.95rem; }
+
+  /* ─── MODAL OVERLAY ─── */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+
+  .overlay.active { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: white;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.25s ease;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+    border-top: 4px solid var(--crimson);
+  }
+
+  .overlay.active .modal {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-header {
+    padding: 1.6rem 1.8rem 1rem;
+    border-bottom: 1px solid var(--warm-gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+
+  .modal-close {
+    width: 32px; height: 32px;
+    border: 1px solid var(--warm-gray);
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid-gray);
+    transition: all 0.15s;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .modal-close:hover { border-color: var(--crimson); color: var(--crimson); }
+
+  .modal-body { padding: 1.6rem 1.8rem; }
+
+  /* ─── FORM ─── */
+  .form-group { margin-bottom: 1.2rem; }
+
+  .form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.45rem;
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--warm-gray);
+    border-radius: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--black);
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--crimson);
+    box-shadow: 0 0 0 3px rgba(155,28,46,0.08);
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-section-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    margin: 1.4rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .form-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--warm-gray);
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: flex-end;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--warm-gray);
+    margin-top: 1.5rem;
+  }
+
+  .error-msg {
+    font-size: 0.82rem;
+    color: var(--crimson);
+    margin-top: 0.35rem;
+  }
+
+  /* ─── ADMIN MODAL ─── */
+  .admin-modal { max-width: 400px; }
+
+  .admin-warning {
+    background: rgba(155,28,46,0.06);
+    border: 1px solid rgba(155,28,46,0.2);
+    border-radius: 3px;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    color: var(--crimson-dark);
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* ─── TOAST ─── */
+  .toast-container {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .toast {
+    background: var(--black);
+    color: white;
+    padding: 0.75rem 1.2rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 240px;
+    border-left: 3px solid var(--crimson);
+    animation: slide-toast 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .toast.success { border-left-color: var(--teal); }
+  .toast.error { border-left-color: var(--crimson); }
+
+  @keyframes slide-toast {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(155,28,46,0.25);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-logos img { height: 36px; opacity: 0.8; filter: brightness(1.1); }
+  .footer-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── VIEW PROFILE MODAL ─── */
+  .view-modal { max-width: 480px; }
+
+  .profile-banner {
+    background: linear-gradient(135deg, var(--black), var(--crimson-dark) 60%, var(--navy));
+    padding: 2rem 1.8rem 1.4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-banner::before {
+    content: 'Ψ';
+    position: absolute;
+    right: 1rem;
+    bottom: -1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+  }
+
+  .profile-avatar-lg {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.8rem;
+  }
+
+  .profile-name-lg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .profile-meta {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 0.15rem;
+  }
+
+  .profile-detail-grid {
+    padding: 1.4rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .detail-block { }
+  .detail-lbl {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .detail-lbl.assigned { color: var(--navy); }
+  .detail-lbl.completed { color: var(--teal); }
+
+  .detail-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .detail-dot.assigned { background: var(--navy); }
+  .detail-dot.completed { background: var(--teal); }
+
+  .detail-val {
+    font-size: 0.9rem;
+    color: var(--black);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .detail-empty { color: var(--mid-gray); font-style: italic; font-size: 0.85rem; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; min-width: unset; }
+    .stat-chip { flex: 1; min-width: 120px; }
+    .hero::after { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img src="Logo_Psynova-01.png" alt="PsyNova Ltd." class="brand-logo-psy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+      <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; color:var(--crimson);">PsyNova Ltd.</span>
+      <div class="brand-divider"></div>
+      <img src="neuromind_logo-01.png" alt="NeuroMind Wellness" class="brand-logo-neuro" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+      <span style="display:none; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:500; color:var(--teal-light);">NeuroMind</span>
+    </div>
+    <div class="header-cta">
+      <button class="btn btn-ghost" onclick="openAdminPanel()">Admin</button>
+      <button class="btn btn-crimson" onclick="openCreateModal()">+ New Profile</button>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">Advocacy Unit · Member Directory</div>
+      <h1 class="hero-title">PsyNova–<em>NeuroMind</em></h1>
+      <p class="hero-subtitle-line">Advocacy Unit</p>
+      <p class="hero-desc">
+        Integrative Psychosocial Consultancy &amp; Research · Institute of Neuro Development &amp; Research.<br>
+        A unified directory for member profiles, task tracking and collaborative advocacy work.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-crimson" onclick="openCreateModal()">Create Profile</button>
+        <button class="btn btn-outline" onclick="document.getElementById('directory').scrollIntoView({behavior:'smooth'})">View Directory</button>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-chip">
+        <span class="stat-num" id="stat-members">0</span>
+        <span class="stat-label">Members</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num" id="stat-assigned">0</span>
+        <span class="stat-label">Assigned</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-num" id="stat-completed">0</span>
+        <span class="stat-label">Completed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DIRECTORY ─── -->
+<section class="directory-section" id="directory">
+  <div class="section-header">
+    <span class="section-tag">Member Directory</span>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="directory-toolbar">
+    <div class="search-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" class="search-input" id="search-input" placeholder="Search by name, ID or university…" oninput="renderCards()" />
+    </div>
+    <button class="btn btn-navy" onclick="openCreateModal()">+ Add Member</button>
+  </div>
+
+  <div class="cards-grid" id="cards-grid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logos">
+    <img src="Untitled-1-01.png" alt="PsyNova Banner" onerror="this.style.display='none'" />
+    <div class="footer-divider"></div>
+    <img src="neuromind_logo-01.png" alt="NeuroMind" onerror="this.style.display='none'" />
+  </div>
+  <p>© 2025 PsyNova–NeuroMind Advocacy Unit · All rights reserved</p>
+</footer>
+
+<!-- ─── CREATE / EDIT MODAL ─── -->
+<div class="overlay" id="create-overlay" onclick="handleOverlayClick(event,'create-overlay')">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">New Member Profile</h2>
+      <button class="modal-close" onclick="closeModal('create-overlay')">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="edit-id" value="">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-input" id="f-name" placeholder="Dr. Jane Smith" />
+          <div class="error-msg" id="err-name"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Member ID *</label>
+          <input type="text" class="form-input" id="f-mid" placeholder="PSY-2024-001" />
+          <div class="error-msg" id="err-mid"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">University / Institution *</label>
+        <input type="text" class="form-input" id="f-uni" placeholder="University of Dhaka" />
+        <div class="error-msg" id="err-uni"></div>
+      </div>
+
+      <p class="form-section-title">Task Information</p>
+
+      <div class="form-group">
+        <label class="form-label">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--navy);margin-right:5px;vertical-align:middle;"></span>
+          Assigned Task
+        </label>
+        <textarea class="form-textarea" id="f-assigned" placeholder="Describe the assigned task or responsibilities…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:5px;vertical-align:middle;"></span>
+          Completed Task
+        </label>
+        <textarea class="form-textarea" id="f-completed" placeholder="Describe completed tasks or achievements…"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-outline" onclick="closeModal('create-overlay')">Cancel</button>
+        <button class="btn btn-crimson" onclick="saveProfile()">Save Profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── VIEW PROFILE MODAL ─── -->
+<div class="overlay" id="view-overlay" onclick="handleOverlayClick(event,'view-overlay')">
+  <div class="modal view-modal">
+    <div class="profile-banner" id="view-banner">
+      <div class="profile-avatar-lg" id="view-avatar"></div>
+      <div class="profile-name-lg" id="view-name"></div>
+      <div class="profile-meta" id="view-id-uni"></div>
+    </div>
+    <div class="profile-detail-grid">
+      <div class="detail-block">
+        <div class="detail-lbl assigned">
+          <span class="detail-dot assigned"></span>
+          Assigned Task
+        </div>
+        <div class="detail-val" id="view-assigned"></div>
+      </div>
+      <div class="detail-block">
+        <div class="detail-lbl completed">
+          <span class="detail-dot completed"></span>
+          Completed Task
+        </div>
+        <div class="detail-val" id="view-completed"></div>
+      </div>
+      <div style="font-size:0.76rem; color:var(--mid-gray); border-top:1px dashed var(--warm-gray); padding-top:0.8rem;" id="view-date"></div>
+    </div>
+    <div style="padding:0 1.8rem 1.5rem; display:flex; justify-content:flex-end; gap:0.7rem;">
+      <button class="btn btn-outline" onclick="closeModal('view-overlay')">Close</button>
+      <button class="btn btn-navy" id="view-edit-btn">Edit Profile</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── DELETE / ADMIN MODAL ─── -->
+<div class="overlay" id="admin-overlay" onclick="handleOverlayClick(event,'admin-overlay')">
+  <div class="modal admin-modal">
+    <div class="modal-header">
+      <h2 class="modal-title" id="admin-modal-title">Admin Verification</h2>
+      <button class="modal-close" onclick="closeModal('admin-overlay')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="admin-warning" id="admin-warning-text">
+        Profile deletion is irreversible. Enter the admin password to confirm.
+      </div>
+      <div class="form-group">
+        <label class="form-label">Admin Password</label>
+        <input type="password" class="form-input" id="admin-pw" placeholder="Enter admin password" onkeydown="if(event.key==='Enter') confirmAdmin()" />
+        <div class="error-msg" id="err-admin"></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-outline" onclick="closeModal('admin-overlay')">Cancel</button>
+        <button class="btn btn-crimson" onclick="confirmAdmin()" id="admin-confirm-btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── TOAST CONTAINER ─── -->
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+// ═══════════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════════
+const ADMIN_PASSWORD = 'PsyNova2024!';
+const STORAGE_KEY = 'psynova_advocacy_members';
+
+let members = [];
+let pendingDeleteId = null;
+let adminAction = null; // 'delete' | 'panel'
+
+// ═══════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════
+function loadMembers() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    members = raw ? JSON.parse(raw) : [];
+  } catch { members = []; }
+}
+
+function saveMembers() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(members));
+}
+
+// ═══════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+function initials(name) {
+  return name.trim().split(/\s+/).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+}
+
+function fmtDate(ts) {
+  return new Date(ts).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s || '';
+  return d.innerHTML;
+}
+
+// ═══════════════════════════════════════════
+// STATS
+// ═══════════════════════════════════════════
+function updateStats() {
+  document.getElementById('stat-members').textContent = members.length;
+  document.getElementById('stat-assigned').textContent = members.filter(m => m.assigned && m.assigned.trim()).length;
+  document.getElementById('stat-completed').textContent = members.filter(m => m.completed && m.completed.trim()).length;
+}
+
+// ═══════════════════════════════════════════
+// RENDER CARDS
+// ═══════════════════════════════════════════
+function renderCards() {
+  const q = (document.getElementById('search-input').value || '').toLowerCase();
+  const grid = document.getElementById('cards-grid');
+  grid.innerHTML = '';
+
+  const filtered = q
+    ? members.filter(m =>
+        m.name.toLowerCase().includes(q) ||
+        m.mid.toLowerCase().includes(q) ||
+        m.uni.toLowerCase().includes(q)
+      )
+    : members;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <span class="empty-psi">Ψ</span>
+        <p>${q ? 'No members match your search.' : 'No profiles yet. Create the first one!'}</p>
+      </div>`;
+    return;
+  }
+
+  filtered.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'member-card';
+    card.innerHTML = `
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-header-row">
+          <div style="display:flex;align-items:center;gap:0.85rem;flex:1;min-width:0;">
+            <div class="member-avatar">${escHtml(initials(m.name))}</div>
+            <div class="member-info">
+              <div class="member-name">${escHtml(m.name)}</div>
+              <div class="member-id">ID: ${escHtml(m.mid)}</div>
+              <div class="member-uni">${escHtml(m.uni)}</div>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="icon-btn" title="View profile" onclick="viewProfile('${m.id}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <button class="icon-btn" title="Edit profile" onclick="openEditModal('${m.id}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="icon-btn danger" title="Delete profile" onclick="requestDelete('${m.id}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="tasks-divider"></div>
+        <div class="task-row">
+          <span class="task-dot assigned"></span>
+          <span class="task-label">Assigned</span>
+          <span class="${m.assigned && m.assigned.trim() ? 'task-text' : 'task-empty'}">
+            ${m.assigned && m.assigned.trim() ? escHtml(m.assigned) : 'No task assigned'}
+          </span>
+        </div>
+        <div class="task-row">
+          <span class="task-dot completed"></span>
+          <span class="task-label">Completed</span>
+          <span class="${m.completed && m.completed.trim() ? 'task-text' : 'task-empty'}">
+            ${m.completed && m.completed.trim() ? escHtml(m.completed) : 'No completed task'}
+          </span>
+        </div>
+        <div class="card-date">Added ${fmtDate(m.createdAt)}${m.updatedAt !== m.createdAt ? ' · Updated ' + fmtDate(m.updatedAt) : ''}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  updateStats();
+}
+
+// ═══════════════════════════════════════════
+// MODALS
+// ═══════════════════════════════════════════
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = '';
+  if (id === 'admin-overlay') {
+    document.getElementById('admin-pw').value = '';
+    document.getElementById('err-admin').textContent = '';
+    pendingDeleteId = null;
+    adminAction = null;
+  }
+}
+
+function handleOverlayClick(e, id) {
+  if (e.target.id === id) closeModal(id);
+}
+
+// ─── Create Modal ───
+function openCreateModal() {
+  document.getElementById('modal-title').textContent = 'New Member Profile';
+  document.getElementById('edit-id').value = '';
+  ['name','mid','uni','assigned','completed'].forEach(k => {
+    document.getElementById('f-'+k).value = '';
+  });
+  ['name','mid','uni'].forEach(k => {
+    document.getElementById('err-'+k).textContent = '';
+  });
+  openModal('create-overlay');
+  setTimeout(() => document.getElementById('f-name').focus(), 100);
+}
+
+function openEditModal(id) {
+  closeModal('view-overlay');
+  const m = members.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('modal-title').textContent = 'Edit Profile';
+  document.getElementById('edit-id').value = id;
+  document.getElementById('f-name').value = m.name;
+  document.getElementById('f-mid').value = m.mid;
+  document.getElementById('f-uni').value = m.uni;
+  document.getElementById('f-assigned').value = m.assigned || '';
+  document.getElementById('f-completed').value = m.completed || '';
+  ['name','mid','uni'].forEach(k => { document.getElementById('err-'+k).textContent = ''; });
+  openModal('create-overlay');
+  setTimeout(() => document.getElementById('f-name').focus(), 100);
+}
+
+// ─── Save ───
+function saveProfile() {
+  const editId = document.getElementById('edit-id').value;
+  const name = document.getElementById('f-name').value.trim();
+  const mid  = document.getElementById('f-mid').value.trim();
+  const uni  = document.getElementById('f-uni').value.trim();
+  const assigned  = document.getElementById('f-assigned').value.trim();
+  const completed = document.getElementById('f-completed').value.trim();
+
+  let valid = true;
+  const setErr = (k, msg) => { document.getElementById('err-'+k).textContent = msg; if (msg) valid = false; };
+
+  setErr('name', name ? '' : 'Full name is required.');
+  setErr('mid',  mid  ? '' : 'Member ID is required.');
+  setErr('uni',  uni  ? '' : 'University / institution is required.');
+
+  // Duplicate ID check (skip self on edit)
+  if (mid && members.some(m => m.mid === mid && m.id !== editId)) {
+    setErr('mid', 'This ID already exists.');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  const now = Date.now();
+
+  if (editId) {
+    const idx = members.findIndex(m => m.id === editId);
+    if (idx !== -1) {
+      members[idx] = { ...members[idx], name, mid, uni, assigned, completed, updatedAt: now };
+      toast('Profile updated successfully.', 'success');
+    }
+  } else {
+    members.unshift({ id: uid(), name, mid, uni, assigned, completed, createdAt: now, updatedAt: now });
+    toast('Profile created successfully.', 'success');
+  }
+
+  saveMembers();
+  renderCards();
+  closeModal('create-overlay');
+}
+
+// ─── View Profile ───
+function viewProfile(id) {
+  const m = members.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('view-avatar').textContent = initials(m.name);
+  document.getElementById('view-name').textContent = m.name;
+  document.getElementById('view-id-uni').textContent = `ID: ${m.mid}  ·  ${m.uni}`;
+  document.getElementById('view-assigned').innerHTML =
+    m.assigned && m.assigned.trim()
+      ? escHtml(m.assigned).replace(/\n/g, '<br>')
+      : '<span class="detail-empty">No assigned task yet</span>';
+  document.getElementById('view-completed').innerHTML =
+    m.completed && m.completed.trim()
+      ? escHtml(m.completed).replace(/\n/g, '<br>')
+      : '<span class="detail-empty">No completed task yet</span>';
+  document.getElementById('view-date').textContent =
+    `Added ${fmtDate(m.createdAt)}` +
+    (m.updatedAt !== m.createdAt ? `  ·  Last updated ${fmtDate(m.updatedAt)}` : '');
+  document.getElementById('view-edit-btn').onclick = () => openEditModal(id);
+  openModal('view-overlay');
+}
+
+// ─── Delete ───
+function requestDelete(id) {
+  pendingDeleteId = id;
+  adminAction = 'delete';
+  const m = members.find(x => x.id === id);
+  document.getElementById('admin-modal-title').textContent = 'Confirm Deletion';
+  document.getElementById('admin-warning-text').textContent =
+    `You are about to permanently delete the profile of "${m ? m.name : 'this member'}". This action cannot be undone. Enter the admin password to confirm.`;
+  document.getElementById('admin-confirm-btn').textContent = 'Delete Profile';
+  document.getElementById('admin-pw').value = '';
+  document.getElementById('err-admin').textContent = '';
+  openModal('admin-overlay');
+  setTimeout(() => document.getElementById('admin-pw').focus(), 100);
+}
+
+function openAdminPanel() {
+  adminAction = 'panel';
+  document.getElementById('admin-modal-title').textContent = 'Admin Access';
+  document.getElementById('admin-warning-text').textContent =
+    'Enter the admin password to manage settings.';
+  document.getElementById('admin-confirm-btn').textContent = 'Verify';
+  document.getElementById('admin-pw').value = '';
+  document.getElementById('err-admin').textContent = '';
+  openModal('admin-overlay');
+  setTimeout(() => document.getElementById('admin-pw').focus(), 100);
+}
+
+function confirmAdmin() {
+  const pw = document.getElementById('admin-pw').value;
+  if (pw !== ADMIN_PASSWORD) {
+    document.getElementById('err-admin').textContent = 'Incorrect password. Access denied.';
+    document.getElementById('admin-pw').classList.add('shake');
+    setTimeout(() => document.getElementById('admin-pw').classList.remove('shake'), 400);
+    return;
+  }
+
+  if (adminAction === 'delete' && pendingDeleteId) {
+    const m = members.find(x => x.id === pendingDeleteId);
+    members = members.filter(x => x.id !== pendingDeleteId);
+    saveMembers();
+    renderCards();
+    toast(`Profile "${m ? m.name : ''}" deleted.`, 'error');
+    closeModal('admin-overlay');
+    pendingDeleteId = null;
+    adminAction = null;
+  } else if (adminAction === 'panel') {
+    closeModal('admin-overlay');
+    toast('Admin access granted. You may now delete profiles.', 'success');
+  }
+}
+
+// ═══════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════
+function toast(msg, type = 'success') {
+  const c = document.getElementById('toast-container');
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  const icon = type === 'success'
+    ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
+    : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg>';
+  t.innerHTML = icon + msg;
+  c.appendChild(t);
+  setTimeout(() => {
+    t.style.transition = 'opacity 0.3s, transform 0.3s';
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(100%)';
+    setTimeout(() => t.remove(), 300);
+  }, 3500);
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+loadMembers();
+renderCards();
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    ['create-overlay','view-overlay','admin-overlay'].forEach(id => {
+      if (document.getElementById(id).classList.contains('active')) closeModal(id);
+    });
+  }
+});
+</script>
+
+<style>
+/* Shake animation for wrong password */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.shake { animation: shake 0.35s ease; border-color: var(--crimson) !important; }
+</style>
+
+</body>
+</html>
